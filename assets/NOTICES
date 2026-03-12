@@ -25086,7 +25086,9 @@ OF THIS SOFTWARE OR ITS FITNESS FOR ANY PARTICULAR PURPOSE.
 --------------------------------------------------------------------------------
 record
 record_android
+record_ios
 record_linux
+record_macos
 record_platform_interface
 record_web
 
@@ -25118,7 +25120,6 @@ record_web
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 --------------------------------------------------------------------------------
-record_darwin
 record_windows
 
 // Copyright 2022 openapi4j authors. All rights reserved.
@@ -26464,11 +26465,11 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 --------------------------------------------------------------------------------
-speech_to_text_macos
+speech_to_text_windows
 
 BSD 3-Clause License
 
-Copyright (c) 2022, Corner Software Development Corp.
+Copyright (c) 2019, Corner Software Development Corp.
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
