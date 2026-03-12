@@ -455,6 +455,8 @@ class CompiledApp {
       _1402: x0 => new Float32Array(x0),
       _1404: x0 => new Float64Array(x0),
       _1428: x0 => x0.random(),
+      _1429: (x0,x1) => x0.getRandomValues(x1),
+      _1430: () => globalThis.crypto,
       _1431: () => globalThis.Math,
       _1444: (ms, c) =>
       setTimeout(() => dartInstance.exports.$invokeCallback(c),ms),
@@ -665,6 +667,7 @@ class CompiledApp {
       _1583: o => o instanceof Float64Array,
       _1584: (o, start, length) => new Float64Array(o.buffer, o.byteOffset + start, length),
       _1585: (t, s) => t.set(s),
+      _1586: l => new DataView(new ArrayBuffer(l)),
       _1587: (o) => new DataView(o.buffer, o.byteOffset, o.byteLength),
       _1589: o => o.buffer,
       _1590: o => o.byteOffset,
