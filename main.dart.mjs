@@ -691,6 +691,7 @@ class CompiledApp {
       _1613: (x0,x1) => x0.item(x1),
       _1614: (x0,x1) => x0.key(x1),
       _1615: o => o instanceof Array,
+      _1616: (a, i) => a.push(i),
       _1620: a => a.pop(),
       _1621: (a, i) => a.splice(i, 1),
       _1622: (a, s) => a.join(s),
