@@ -20,6 +20,11 @@
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="ACC - ระบบบัญชีออนไลน์">
 
+  <!-- Cache Control - Prevent caching of this file -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -336,6 +341,38 @@
 
     // Start rotation
     featureInterval = setInterval(rotateFeature, 3000);
+
+    // Version check for cache busting
+    var currentVersion = null;
+    var versionCheckInterval;
+
+    function checkVersion() {
+      fetch(window.location.href, { 
+        method: 'HEAD',
+        cache: 'no-store',
+        headers: { 'Cache-Control': 'no-cache' }
+      })
+        .then(function(response) {
+          var newVersion = response.headers.get('ETag') || response.headers.get('Last-Modified');
+          if (currentVersion === null) {
+            currentVersion = newVersion;
+          } else if (newVersion && newVersion !== currentVersion) {
+            // New version detected - prompt user to refresh
+            console.log('New version detected, refreshing...');
+            clearInterval(featureInterval);
+            clearInterval(versionCheckInterval);
+            window.location.reload(true);
+          }
+        })
+        .catch(function(err) {
+          console.log('Version check failed:', err);
+        });
+    }
+
+    // Check version every 30 seconds
+    versionCheckInterval = setInterval(checkVersion, 30000);
+    // Initial check
+    checkVersion();
 
     // Hide loading screen when Flutter is ready
     window.addEventListener('flutter-first-frame', function() {
